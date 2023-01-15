@@ -9,10 +9,8 @@ int main() {
     for (int i=0; i<N; i++) {
         scanf("%d %d %d", &RGB[0], &RGB[1], &RGB[2]);
         for (int j=0; j<3; j++) {
-            int a = RGB[j] + cost[(j+1)%3];
-            int b = RGB[j] + cost[(j+2)%3];
-            if (a <= b) RGB[j] = a;
-            else RGB[j] = b;
+            if (cost[(j+1)%3] <= cost[(j+2)%3]) RGB[j] += cost[(j+1)%3];
+            else RGB[j] += cost[(j+2)%3];
         }
         cost[0] = RGB[0];
         cost[1] = RGB[1];
